@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>あおいろcat作成サイト・アプリまとめ</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --border-color: #334155;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 2.5rem 1rem;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 3.5rem; }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #38bdf8, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        header p { color: var(--text-muted); font-size: 1.1rem; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px card-bg 1px solid;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.1);
+        }
+        .card-content h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color); }
+        .card-content p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+        .card-footer { display: flex; gap: 0.75rem; }
+        .btn-card {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+            text-align: center;
+            flex: 1;
+        }
+        .btn-primary { background-color: var(--accent-color); color: #0f172a; }
+        .btn-primary:hover { background-color: var(--accent-hover); }
+        .btn-outline { background-color: transparent; color: var(--text-color); border: 1px solid var(--border-color); }
+        .btn-outline:hover { background-color: var(--border-color); }
+        footer { text-align: center; margin-top: 4rem; color: var(--text-muted); font-size: 0.875rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Portfolio</h1>
+           <p>あおいろcat<p>
+            <p>あおいろcatがこれまでに開発したWebアプリケーションやプロジェクトのまとめ</p>
+        </header>
+        <main class="grid">
+            
+            <div class="card">
+                <div class="card-content">
+                    <h3>OBSオーバーレイ管理ツール</h3>
+                    <p>リアルタイム通信を用いて、OBS配信画面を外部から柔軟に制御できる管理ツール。</p>
+                </div>
+                <div class="card-footer">
+                    
+                    <a href="https://aoirocat-bluecat.github.io/OBSLIVECustomize/" class="btn-card btn-outline" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>リアルタイム文字起こしツール</h3>
+                    <p>リアルタイムでマイクから拾った声を文字に起こせます</p>
+                </div>
+                <div class="card-footer">
+                    
+                    <a href="https://aoirocat-bluecat.github.io/Real-time-transcription-riarutaimumoziokosi/" class="btn-card btn-outline" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>#コンパス カスタムルール作成ツール</h3>
+                    <p>コンパスのカスタムマッチのルールを簡単に作成。禁止カードの種類表示やBAN
+ヒーローの表示も。</p>
+                </div>
+                <div class="card-footer">
+                    
+                    <a href="https://aoirocat-bluecat.github.io/compass-rule-maker/" class="btn-card btn-outline" target="_blank" rel="noopener">GitHub</a>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2026 My Portfolio. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
