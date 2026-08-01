@@ -3,128 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio - 作成サイトまとめ</title>
+    <title>あおいろキャット | Official Site</title>
     <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-color: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent-color: #38bdf8;
-            --accent-hover: #0ea5e9;
-            --border-color: #334155;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            padding: 2.5rem 1rem;
-        }
-        .container { max-width: 1000px; margin: 0 auto; }
-        header { text-align: center; margin-bottom: 3.5rem; }
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #38bdf8, #818cf8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        header p { color: var(--text-muted); font-size: 1.1rem; }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .card {
-            background-color: var(--card-bg);
-            border: 1px card-bg 1px solid;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 25px -5px rgba(56, 189, 248, 0.1);
-        }
-        .card-content h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: var(--text-color); }
-        .card-content p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
-        .card-footer { display: flex; gap: 0.75rem; }
-        .btn-card {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: background-color 0.2s ease;
-            text-align: center;
-            flex: 1;
-        }
-        .btn-primary { background-color: var(--accent-color); color: #0f172a; }
-        .btn-primary:hover { background-color: var(--accent-hover); }
-        .btn-outline { background-color: transparent; color: var(--text-color); border: 1px solid var(--border-color); }
-        .btn-outline:hover { background-color: var(--border-color); }
-        footer { text-align: center; margin-top: 4rem; color: var(--text-muted); font-size: 0.875rem; }
+        body { margin: 0; padding: 0; font-family: 'Helvetica Neue', Arial, sans-serif; background-color: #0b0c10; color: #ffffff; min-height: 100vh; overflow-x: hidden; position: relative; display: flex; justify-content: center; }
+        
+        /* 背景エフェクト */
+        .glow { position: fixed; width: 600px; height: 600px; background: #007bff; border-radius: 50%; filter: blur(150px); opacity: 0.2; z-index: -1; top: -150px; left: -200px; animation: float 12s infinite alternate; }
+        .glow-2 { background: #00d2ff; top: auto; bottom: -200px; right: -200px; left: auto; animation-delay: -6s; }
+        @keyframes float { 0% { transform: translateY(0px); } 100% { transform: translateY(50px); } }
+
+        /* コンテナ */
+        .container { width: 100%; max-width: 900px; padding: 80px 20px; box-sizing: border-box; z-index: 10; }
+        
+        /* ヘッダー周り */
+        .header { text-align: center; margin-bottom: 60px; }
+        h1 { font-size: 3.5rem; margin: 0; background: linear-gradient(90deg, #00d2ff, #007bff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 2px; }
+        .subtitle { color: #8a99a8; letter-spacing: 3px; margin-top: 10px; font-size: 1.1rem; }
+        .about { text-align: center; color: #c4cdd5; margin-bottom: 60px; line-height: 1.9; font-size: 1.1rem; }
+        
+        /* 見出し */
+        h2 { border-left: 5px solid #00d2ff; padding-left: 15px; color: #e0e0e0; margin-bottom: 30px; font-size: 1.8rem; }
+        
+        /* カードグリッド */
+        .grid { display: grid; gap: 25px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+        
+        /* アプリ/リンクカード */
+        .app-card { display: block; text-decoration: none; color: inherit; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(0, 123, 255, 0.2); border-radius: 16px; padding: 30px; transition: all 0.3s ease; }
+        .app-card:hover { border-color: #00d2ff; transform: translateY(-5px); background: rgba(0, 123, 255, 0.08); box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15); }
+        .app-card h3 { color: #00d2ff; margin-top: 0; margin-bottom: 15px; font-size: 1.3rem; }
+        .app-card p { color: #a0a5b5; font-size: 1rem; line-height: 1.6; margin-bottom: 0; }
+        .link-indicator { margin-top: 20px; font-size: 0.95rem; color: #00d2ff; font-weight: bold; text-align: right; opacity: 0.7; transition: 0.3s; }
+        .app-card:hover .link-indicator { opacity: 1; transform: translateX(5px); }
     </style>
 </head>
 <body>
+    <div class="glow"></div>
+    <div class="glow glow-2"></div>
+    
     <div class="container">
-        <header>
-            <h1>My Portfolio</h1>
-            <p>これまでに開発したWebアプリケーションやプロジェクトのまとめ</p>
-        </header>
-        <main class="grid">
-            
-            <div class="card">
-                <div class="card-content">
-                    <h3>OBSオーバーレイ管理ツール</h3>
-                    <p>リアルタイム通信を用いて、OBS配信画面を外部から柔軟に制御できる管理ツール。</p>
-                </div>
-                <div class="card-footer">
-                    
-                    <a href="https://github.com/example/repo2" class="btn-card btn-outline" target="_blank" rel="noopener">GitHub</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
+        <div class="header">
+            <h1>あおいろキャット | Official Site</h1>
+            <div class="subtitle">Aoirocat Official Website</div>
+        </div>
+        
+        <div class="about">
+            YouTubeでの動画投稿や、自作アプリ・ツールの公開を行っています。
+        </div>
+        
+        <h2>Works & Links</h2>
+        <div class="grid">
+
+                <a href="https://www.youtube.com/@aoirocat22" target="_blank" rel="noopener noreferrer" class="app-card">
+                    <h3>YouTube チャンネル</h3>
+                    <p>動画投稿を行っています。</p>
+                    <div class="link-indicator">サイトを開く ➔</div>
+                </a>
+
+                <a href="https://x.com/AoirocatYoutube" target="_blank" rel="noopener noreferrer" class="app-card">
+                    <h3>X (Twitter)</h3>
+                    <p>最新の活動情報はこちら。</p>
+                    <div class="link-indicator">サイトを開く ➔</div>
+                </a>
+
+                <a href="https://aoirocat-bluecat.github.io/Real-time-transcription-riarutaimumoziokosi/" target="_blank" rel="noopener noreferrer" class="app-card">
                     <h3>リアルタイム文字起こしツール</h3>
                     <p>リアルタイムでマイクから拾った声を文字に起こせます</p>
-                </div>
-                <div class="card-footer">
-                    
-                    <a href="https://aoirocat-bluecat.github.io/Real-time-transcription-riarutaimumoziokosi/" class="btn-card btn-outline" target="_blank" rel="noopener">GitHub</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
+                    <div class="link-indicator">サイトを開く ➔</div>
+                </a>
+
+                <a href="https://aoirocat-bluecat.github.io/compass-rule-maker/" target="_blank" rel="noopener noreferrer" class="app-card">
                     <h3>#コンパス カスタムルール作成ツール</h3>
                     <p>コンパスのカスタムマッチのルールを簡単に作成。禁止カードの種類表示やBAN ヒーローの表示も</p>
-                </div>
-                <div class="card-footer">
-                    
-                    <a href="https://aoirocat-bluecat.github.io/compass-rule-maker/" class="btn-card btn-outline" target="_blank" rel="noopener">GitHub</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3> PCゲーム 詳細スペックチェッカー</h3>
+                    <div class="link-indicator">サイトを開く ➔</div>
+                </a>
+
+                <a href="https://aoirocat-bluecat.github.io/PC-Game-Detailed-Specs-Checker/" target="_blank" rel="noopener noreferrer" class="app-card">
+                    <h3>PCゲーム 詳細スペックチェッカー</h3>
                     <p>自分のPCスペックとPCゲームの要求スペックを入れるだけで快適かがすぐわかるチェッカー。また予想FPSも表示できます</p>
-                </div>
-                <div class="card-footer">
-                    
-                    <a href="https://aoirocat-bluecat.github.io/PC-Game-Detailed-Specs-Checker/" class="btn-card btn-outline" target="_blank" rel="noopener">GitHub</a>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <p>&copy; 2026 My Portfolio. All rights reserved.</p>
-        </footer>
+                    <div class="link-indicator">サイトを開く ➔</div>
+                </a>
+
+                <a href="https://nekocat2222.github.io/BUCKGROUNDHERO/" target="_blank" rel="noopener noreferrer" class="app-card">
+                    <h3>Buck-Ground-Hero</h3>
+                    <p>某タスク◯ー◯ーローを真似て作ってみました。</p>
+                    <div class="link-indicator">サイトを開く ➔</div>
+                </a>
+
+                <a href="#https://aoirocat-bluecat.github.io/OBSLIVECustomize/" target="_blank" rel="noopener noreferrer" class="app-card">
+                    <h3>OBSオーバーレイ管理ツール</h3>
+                    <p>リアルタイム通信を用いて、OBS配信画面を外部から柔軟に制御できる管理ツール。</p>
+                    <div class="link-indicator">サイトを開く ➔</div>
+                </a>
+        </div>
     </div>
 </body>
 </html>
